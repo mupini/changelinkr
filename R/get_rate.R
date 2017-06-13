@@ -2,7 +2,7 @@ rr <- function(){
     page.url <- 'http://change-link.com/exchange-rates/currency-converter/'
     table.id <- '#ContentPlaceHolderDefault_SidebarZone_Item4_AllRates_8_RatesGridView'
 
-    data.table <- xml2::html_node(rvest::read_html(page.url), css = table.id)
+    data.table <- rvest::html_node(xml2::read_html(page.url), css = table.id)
     data.rows <- rvest::html_nodes(data.table, 'tr')
 
     data.rows <- data.rows[-1]
