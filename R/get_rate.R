@@ -7,7 +7,7 @@ rr <- function(){
 
     data.rows <- data.rows[-1]
     tmpdf <-  dplyr::bind_rows(lapply(data.rows, function(curr.row) {
-        td <-  html_nodes(curr.row, 'td')
+        td <-  rvest::html_nodes(curr.row, 'td')
         data.frame(currency.name = rvest::html_text(td[2]),
                    buy.val = rvest::html_text(td[3]),
                    sell.val = rvest::html_text(td[4]),
